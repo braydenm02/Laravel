@@ -7,7 +7,15 @@
         Welcome
     </x-slot:title>
     <x-slot:navbar>
-
+        <nav class="navbar bg-base-100">
+            <div class="navbar-start">
+                <a href="/" class="btn btn-ghost text-xl">🏭 Warehouse Management System</a>
+            </div>
+            <div class="navbar-end gap-2">
+                <a href="#" class="btn btn-ghost btn-sm">Sign In</a>
+                <a href="#" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+        </nav>
     </x-slot:navbar>
     <div class="container" style="margin-top: 50px">
         <div class="d-flex flex-column align-items-center mb-4">
