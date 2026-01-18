@@ -1,3 +1,4 @@
 Here are the instructions fro deploying a laravel
 app to the internet.
 
+Use cloud.laravel.com (pay as you go)
