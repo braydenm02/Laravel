@@ -18,7 +18,7 @@
 </head>
 
 <body class="min-h-screen flex flex-col bg-base-200 font-sans">
-    <nav class="navbar bg-base-100">
+    {{ isset($navbar) ? $navbar : `<nav class="navbar bg-base-100">
         <div class="navbar-start">
             <a href="/" class="btn btn-ghost text-xl">🐦 Chirper</a>
         </div>
@@ -26,7 +26,8 @@
             <a href="#" class="btn btn-ghost btn-sm">Sign In</a>
             <a href="#" class="btn btn-primary btn-sm">Sign Up</a>
         </div>
-    </nav>
+    </nav>` }}
+
 
     <main class="flex-1 container mx-auto px-4 py-8">
         <!-- The $slot variable here is used to load components and display their content -->

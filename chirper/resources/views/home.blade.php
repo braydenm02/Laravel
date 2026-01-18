@@ -6,6 +6,9 @@
     <x-slot:title>
         Welcome
     </x-slot:title>
+    <x-slot:navbar>
+
+    </x-slot:navbar>
     <div class="container" style="margin-top: 50px">
         <div class="d-flex flex-column align-items-center mb-4">
             <img id="logo" src="../imgs/grading-tool-logo.png" alt="Grading Tool Logo" style="height: 150px;">
@@ -17,7 +20,7 @@
                     <button
                         class="btn btn-outline-dark w-100 py-4 rounded-5 custom-btn btn-height d-flex flex-column justify-content-between align-items-center text-center"
                         type="button">
-                        <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+                        <div class="grow d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                                 class="bi bi-list-check" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -38,7 +41,7 @@
                         <button
                             class="btn btn-outline-dark w-100 py-4 rounded-5 custom-btn btn-height d-flex flex-column align-items-center justify-content-center text-center"
                             type="button">
-                            <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+                            <div class="grow d-flex align-items-center justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                                     class="bi bi-clipboard2-data" viewBox="0 0 16 16">
                                     <path
@@ -68,7 +71,7 @@
                     <button
                         class="btn btn-outline-dark w-100 py-4 rounded-5 custom-btn btn-height d-flex flex-column align-items-center justify-content-center text-center"
                         type="button">
-                        <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+                        <div class="grow d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                                 class="bi bi-receipt-cutoff" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -92,7 +95,7 @@
                         <button
                             class="btn btn-outline-dark w-100 py-4 rounded-5 custom-btn btn-height d-flex flex-column align-items-center justify-content-center text-center"
                             type="button">
-                            <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+                            <div class="grow d-flex align-items-center justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                                     class="bi bi-truck" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -122,7 +125,7 @@
                     <button
                         class="btn btn-outline-dark w-100 py-4 rounded-5 custom-btn btn-height d-flex flex-column align-items-center justify-content-center text-center"
                         type="button">
-                        <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+                        <div class="grow d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                                 class="bi bi-boxes" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -142,7 +145,7 @@
                     <button
                         class="btn btn-outline-dark w-100 py-4 rounded-5 custom-btn btn-height d-flex flex-column align-items-center justify-content-center text-center"
                         type="button">
-                        <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+                        <div class="grow d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                                 class="bi bi-geo-alt" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -164,7 +167,7 @@
                         <button
                             class="btn btn-outline-dark w-100 py-4 rounded-5 custom-btn btn-height d-flex flex-column align-items-center justify-content-center text-center"
                             type="button">
-                            <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+                            <div class="grow d-flex align-items-center justify-content-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                                     class="bi bi-patch-check" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -193,7 +196,7 @@
                     <button
                         class="btn btn-outline-dark w-100 py-4 rounded-5 custom-btn btn-height d-flex flex-column align-items-center justify-content-center text-center"
                         type="button">
-                        <div class="flex-grow-1 d-flex align-items-center justify-content-center">
+                        <div class="grow d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                                 class="bi bi-printer" viewBox="0 0 16 16">
                                 <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1" />
@@ -212,4 +215,15 @@
             </div>
         </div>
     </div>
+    @foreach ($chirps as $chirp)
+        <div class="card bg-base-100 shadow mt-8">
+            <div class="card-body">
+                <div>
+                    <div class="font-semibold">{{ $chirp['author'] }}</div>
+                    <div class="mt-1">{{ $chirp['message'] }}</div>
+                    <div class="text-sm text-gray-500 mt-2">{{ $chirp['time'] }}</div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 </x-layout>
