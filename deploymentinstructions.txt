@@ -1,0 +1,12 @@
+Here are the instructions for deploying the laravel app.
+
+Use cloud.laravel.com (pay as you go)
+
+When downloading for the first time, run:
+ - npm install
+ - composer install
+
+make sure there is an sqlite file to run with. If not:
+ - New-Item -ItemType File -Path database\database.sqlite -Force
+
+make a copy of the .env.example and name it .env. 
