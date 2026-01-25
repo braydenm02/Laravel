@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChirpController;
+use App\Http\Controllers\GradeController;   
 
 /* Web Routes get the views from the resources/views directory. These files render
  the HTML that is sent to the browser. They can also contain Blade syntax, which
@@ -15,3 +16,10 @@ Route::get('/', function () {
 
 // Uses controllers to return functions (look above)
 Route::get('/', [ChirpController::class, 'index']);
+
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+
+Route::get('/grading', [GradeController::class, 'index']);
+Route::post('/grading', [GradeController::class, 'gradeItem']);

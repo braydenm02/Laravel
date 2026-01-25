@@ -87,4 +87,11 @@ class ChirpController extends Controller
 
         return view('home', ['chirps' => $chirps, 'data' => $data]);
     }
+
+    public function grading()
+    {
+        $printerForm = ``;
+        $accessoriesForm = [];
+        $tonerForm = [];
+    }
 }

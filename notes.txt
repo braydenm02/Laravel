@@ -1,0 +1,27 @@
+
+There are a couple ways to load a js script
+
+1. @ vite(['resources/js/grading/grading.js'])
+    - add after </x-layout> at the bottom of this file
+2. if layout has a scripts slot, use that
+    <x - layout>
+        <x -s lot:scripts>
+            < script src="{ { asset('js/your-script.js') } }"></script>
+            < script>
+                // Your inline JavaScript
+            < / script>
+        < / x-slot:scripts>
+    < / x-layout>
+3. Using @ push and @ stack
+    - in layout.blade.php, add @ stack('scripts') before </body>
+    - in this file, add:
+        @ push('scripts')
+            <script src="{ { asset('js/your-script.js') } }"></script>
+            <script>
+                // Your inline JavaScript
+            < / script>
+        @ endpush
+4. Direct sript tag in this file
+    - add <script src="{ { asset('js/your-script.js') } }"></script>
+        before </x-layout> at the bottom of this file
+    - In the script section, use imports if needed

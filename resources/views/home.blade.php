@@ -42,3 +42,4 @@
         </div>
     @endforeach
 </x-layout>
+<x-footer />

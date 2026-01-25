@@ -18,27 +18,16 @@
 </head>
 
 <body class="min-h-screen flex flex-col bg-base-200 font-sans">
-    {{ isset($navbar) ? $navbar : `<nav class="navbar bg-base-100">
-        <div class="navbar-start">
-            <a href="/" class="btn btn-ghost text-xl">🐦 Chirper</a>
-        </div>
-        <div class="navbar-end gap-2">
-            <a href="#" class="btn btn-ghost btn-sm">Sign In</a>
-            <a href="#" class="btn btn-primary btn-sm">Sign Up</a>
-        </div>
-    </nav>` }}
-
-
+    <nav class="navbar basenav">
+        <x-navbar />
+    </nav>
     <main class="flex-1 container mx-auto px-4 py-8">
         <!-- The $slot variable here is used to load components and display their content -->
         {{ $slot }}
     </main>
-
-    <footer class="footer footer-center p-5 bg-base-300 text-base-content text-xs">
-        <div>
-            <p>© 2025 Chirper - Built with Laravel and ❤️</p>
-        </div>
-    </footer>
+    <canvas id="canvas-slp" style="display:none;"></canvas>
+    <canvas id="canvas-serial" style="display:none;"></canvas>
+    <canvas id="canvas-sku" style="display:none;"></canvas>
 </body>
 
 </html>
