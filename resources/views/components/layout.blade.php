@@ -10,10 +10,10 @@
     <!--Uses tailwind.css-->
     <!--This is where we can load the js, css resources-->
     @vite([
+        '../node_modules/bootstrap/dist/css/bootstrap.min.css',
         'resources/css/app.css',
         'resources/js/app.js',
         'resources/css/style.css',
-        '../node_modules/bootstrap/dist/css/bootstrap.min.css'
     ])
 </head>
 

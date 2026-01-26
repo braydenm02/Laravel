@@ -56,9 +56,11 @@
     </div>
 
     <!-- Table + Search Message-->
-    <div id="searchMessage" class="mt-2 spanish-text text-center"></div>
-    <div class="" id="gradeResults">
-        {{ isset($printers) ? $printers->toJson() : '' }}
+    <div id="searchMessage" class="mt-2 spanish-text text-center">
+        {{ isset($serial) ? $serial : '' }}
+    </div>
+    <div class="justify-content-center d-flex" id="gradeResults">
+        {!! isset($printers) ? $printers : '' !!}
     </div>
 
     <!-- Alerts -->
@@ -76,7 +78,7 @@
     <div class="fluid-container text-center" style="padding: 0;" id="itemInfo"></div>
     <div id="graded"></div>
 
-    <div class="form-container mt-4">
+    <div class="form-container mt-4 justify-content-center d-flex">
         {!! isset($form) ? $form : '' !!}
     </div>
 </x-layout>

@@ -15,14 +15,22 @@ class GradeController extends Controller {
 
         // Get the printers matching the serial number
         $printers = Printer::where('serial', '=', $serial)->get();
-        // Get the item from inventory based on the serial number
-        // Detect if it is a printer or accessory
-        // Return the appopriate form
+
+        if ($printers->isEmpty()) {
+            return view('grading', ['printers' => 'Serial number not found in inventory.']);
+        }
+        if ($printers->count() > 1) {
+            return view('grading', ['printers' => 'Multiple items found with the same serial number. Please contact support.']);
+        }
+        
+        $printerHTML = view('partials.printer_table', ['printers' => $printers])->render();
+        $serialHTML = 'Showing Results for ' . $serial;
+
         $form = $this->accessoryForm();
         if (str_starts_with($serial, 'PRN')) {
             $form = $this->printerForm();
         }
-        return view('grading', ['form' => $form, 'printers' => $printers]);
+        return view('grading', ['form' => $form, 'printers' => $printerHTML, 'serial' => $serialHTML]);
     }   
 
     public function printerForm() {
@@ -391,7 +399,7 @@ HTML;
         return <<<'HTML'
         
     <!-- ACCESSORY FORM -->
-    <div class="col  forms" id="accessoryForm">
+    <div class="forms" id="accessoryForm">
         <!-- NEW BUTTON FOR ACCESSORIES-->
         <div class="col button-container padding-bottom">
             <div class="container styled-box">
