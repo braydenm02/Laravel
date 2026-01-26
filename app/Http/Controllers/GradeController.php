@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Printer;
 use Illuminate\Http\Request;
 
 class GradeController extends Controller {
@@ -11,6 +12,9 @@ class GradeController extends Controller {
 
     public function gradeItem(Request $request) {
         $serial = $request->input('serial');
+
+        // Get the printers matching the serial number
+        $printers = Printer::where('serial', '=', $serial)->get();
         // Get the item from inventory based on the serial number
         // Detect if it is a printer or accessory
         // Return the appopriate form
@@ -18,7 +22,7 @@ class GradeController extends Controller {
         if (str_starts_with($serial, 'PRN')) {
             $form = $this->printerForm();
         }
-        return view('grading', ['form' => $form]);
+        return view('grading', ['form' => $form, 'printers' => $printers]);
     }   
 
     public function printerForm() {

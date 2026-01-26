@@ -57,7 +57,9 @@
 
     <!-- Table + Search Message-->
     <div id="searchMessage" class="mt-2 spanish-text text-center"></div>
-    <div class="" id="gradeResults"></div>
+    <div class="" id="gradeResults">
+        {{ isset($printers) ? $printers->toJson() : '' }}
+    </div>
 
     <!-- Alerts -->
     <div class="d-flex justify-content-center">
