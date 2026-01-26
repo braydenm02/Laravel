@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('inventory', function (Blueprint $table) {
             $table->id('printer_id');
             $table->timestamps();
-            $table->dateTime('entrydate');
-            $table->string('BOL');
+            $table->dateTime('entrydate')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->string('BOL')->nullable();
             $table->string('serial');
             $table->string('slp');
             $table->string('sku');
             $table->string('condition');
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->dateTime('verified_at')->nullable();
             $table->dateTime('reserved_at')->nullable();
             $table->dateTime('sold_at')->nullable();
