@@ -23,3 +23,7 @@ Route::get('/welcome', function () {
 
 Route::get('/grading', [GradeController::class, 'index']);
 Route::post('/grading', [GradeController::class, 'gradeItem']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
