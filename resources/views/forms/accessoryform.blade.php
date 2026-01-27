@@ -1,4 +1,4 @@
-<div class="forms" id="accessoryForm">
+<div class="gradeForm" id="accessoryForm">
     <!-- NEW BUTTON FOR ACCESSORIES-->
     <div class="col button-container padding-bottom">
         <div class="container styled-box">
@@ -103,7 +103,7 @@
                 <!--Submit button-->
                 <div class="text-center">
                     <br>
-                    <button class="btn btn-dark green-hover w-25 checkForm" type="button">Done</button>
+                    <button class="btn btn-dark green-hover w-25 checkForm" type="submit">Done</button>
                 </div>
             </div>
         </div>

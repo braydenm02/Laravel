@@ -78,7 +78,7 @@
     <div class="fluid-container text-center" style="padding: 0;" id="itemInfo"></div>
     <div id="graded"></div>
 
-    <div class="form-container mt-4 justify-content-center d-flex">
+    <div class="form-container mt-4 justify-content-center d-flex" id="gradingform">
         {!! isset($form) ? $form : '' !!}
     </div>
 </x-layout>

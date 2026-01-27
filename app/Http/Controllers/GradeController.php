@@ -6,6 +6,15 @@ use App\Models\Printer;
 use Illuminate\Http\Request;
 
 class GradeController extends Controller {
+
+    private function respond($status, $message, $data = [], $code = 200) {
+        return response()->json([
+            'status' => $status,
+            'message' => $message,
+            'data' => $data
+        ], $code);
+    }
+
     public function index() {
         return view('grading');
     }
@@ -17,10 +26,10 @@ class GradeController extends Controller {
         $printers = Printer::where('serial', '=', $serial)->get();
 
         if ($printers->isEmpty()) {
-            return view('grading', ['printers' => 'Serial number not found in inventory.']);
+            return $this->respond(1, 'No items found with that serial number.');
         }
         if ($printers->count() > 1) {
-            return view('grading', ['printers' => 'Multiple items found with the same serial number. Please contact support.']);
+            return $this->respond(1, 'Multiple items found with that serial number. Please contact support.');
         }
         
         $printerHTML = view('partials.printer_table', ['printers' => $printers])->render();
@@ -31,6 +40,12 @@ class GradeController extends Controller {
         } else {
             $form = view('forms.accessoryform')->render();
         }
-        return view('grading', ['form' => $form, 'printers' => $printerHTML, 'serial' => $serialHTML]);
+        
+        return $this->respond(0, 'Showing items for ' . $serial, [
+            'printerHTML' => $printerHTML,
+            'serialHTML' => $serialHTML,
+            'form' => $form
+        ]);
     }   
+
 }
